@@ -51,18 +51,18 @@ struct VehicleReminderRow: View {
                             if let days = rule.daysInterval {
                                 Text("\(days) days")
                                     .font(.caption)
-                                    .foregroundStyle(.blue)
+                                    .foregroundStyle(ColorTheme.info)
                             }
 
                             if let km = rule.distanceIntervalKm {
                                 if rule.daysInterval != nil {
                                     Text("or")
                                         .font(.caption)
-                                        .foregroundStyle(.tertiary)
+                                        .foregroundStyle(ColorTheme.tertiaryText)
                                 }
                                 Text("\(Int(km)) km")
                                     .font(.caption)
-                                    .foregroundStyle(.blue)
+                                    .foregroundStyle(ColorTheme.info)
                             }
 
                             if rule.daysInterval == nil && rule.distanceIntervalKm == nil {

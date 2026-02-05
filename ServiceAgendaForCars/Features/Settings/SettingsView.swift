@@ -55,11 +55,11 @@ struct SettingsView: View {
                         Spacer()
                         if notificationManager.permissionGranted {
                             Label("Enabled", systemImage: "checkmark.circle.fill")
-                                .foregroundStyle(.green)
+                                .foregroundStyle(ColorTheme.success)
                                 .font(.subheadline)
                         } else {
                             Label("Disabled", systemImage: "xmark.circle.fill")
-                                .foregroundStyle(.red)
+                                .foregroundStyle(ColorTheme.error)
                                 .font(.subheadline)
                         }
                     }

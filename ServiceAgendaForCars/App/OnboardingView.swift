@@ -16,7 +16,7 @@ struct OnboardingView: View {
 
                 Image(systemName: "car.fill")
                     .font(.system(size: 80))
-                    .foregroundStyle(.blue)
+                    .foregroundStyle(ColorTheme.info)
 
                 VStack(spacing: 8) {
                     Text("Welcome to Service Agenda")
@@ -55,7 +55,7 @@ struct OnboardingView: View {
                             .font(.headline)
                             .frame(maxWidth: .infinity)
                             .padding()
-                            .background(vehicleName.trimmingCharacters(in: .whitespaces).isEmpty ? Color.gray : Color.blue)
+                            .background(vehicleName.trimmingCharacters(in: .whitespaces).isEmpty ? Color.gray : ColorTheme.info)
                             .foregroundStyle(.white)
                             .cornerRadius(12)
                     }

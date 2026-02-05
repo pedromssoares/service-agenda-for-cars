@@ -115,7 +115,7 @@ struct CostAnalyticsView: View {
                         Spacer()
                         Text(CurrencyFormatter.format(totalCost))
                             .font(.headline)
-                            .foregroundStyle(.blue)
+                            .foregroundStyle(ColorTheme.chartPrimary)
                     }
 
                     HStack {
@@ -141,13 +141,13 @@ struct CostAnalyticsView: View {
                                 x: .value("Month", item.month, unit: .month),
                                 y: .value("Cost", item.total)
                             )
-                            .foregroundStyle(.blue)
+                            .foregroundStyle(ColorTheme.chartPrimary)
 
                             AreaMark(
                                 x: .value("Month", item.month, unit: .month),
                                 y: .value("Cost", item.total)
                             )
-                            .foregroundStyle(.blue.opacity(0.2))
+                            .foregroundStyle(ColorTheme.chartPrimary.opacity(0.2))
                         }
                         .frame(height: 200)
                         .chartYAxisLabel("Cost")
@@ -161,11 +161,11 @@ struct CostAnalyticsView: View {
                             x: .value("Cost", item.total),
                             y: .value("Service", item.name)
                         )
-                        .foregroundStyle(.blue)
+                        .foregroundStyle(ColorTheme.chartPrimary)
                         .annotation(position: .trailing) {
                             Text(CurrencyFormatter.format(item.total))
                                 .font(.caption)
-                                .foregroundStyle(.secondary)
+                                .foregroundStyle(ColorTheme.secondaryText)
                         }
                     }
                     .frame(height: CGFloat(costByServiceType.count * 40))
@@ -182,7 +182,7 @@ struct CostAnalyticsView: View {
                                 Spacer()
                                 Text(CurrencyFormatter.format(item.total))
                                     .font(.headline)
-                                    .foregroundStyle(.blue)
+                                    .foregroundStyle(ColorTheme.chartPrimary)
                             }
 
                             HStack {

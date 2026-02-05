@@ -37,6 +37,7 @@
 		A1000084000000000000001 /* EditServiceTypeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1000085000000000000001 /* EditServiceTypeView.swift */; };
 		A1000086000000000000001 /* VehicleRemindersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1000087000000000000001 /* VehicleRemindersView.swift */; };
 		A1000088000000000000001 /* CostAnalyticsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1000089000000000000001 /* CostAnalyticsView.swift */; };
+		A1000091000000000000001 /* ColorTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1000092000000000000001 /* ColorTheme.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -71,6 +72,7 @@
 		A1000085000000000000001 /* EditServiceTypeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditServiceTypeView.swift; sourceTree = "<group>"; };
 		A1000087000000000000001 /* VehicleRemindersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VehicleRemindersView.swift; sourceTree = "<group>"; };
 		A1000089000000000000001 /* CostAnalyticsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CostAnalyticsView.swift; sourceTree = "<group>"; };
+		A1000092000000000000001 /* ColorTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorTheme.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -187,8 +189,17 @@
 			children = (
 				A1000060000000000000001 /* Formatting */,
 				A1000079000000000000001 /* Components */,
+				A1000093000000000000001 /* Themes */,
 			);
 			path = Shared;
+			sourceTree = "<group>";
+		};
+		A1000093000000000000001 /* Themes */ = {
+			isa = PBXGroup;
+			children = (
+				A1000092000000000000001 /* ColorTheme.swift */,
+			);
+			path = Themes;
 			sourceTree = "<group>";
 		};
 		A1000079000000000000001 /* Components */ = {
@@ -355,6 +366,7 @@
 				A1000084000000000000001 /* EditServiceTypeView.swift in Sources */,
 				A1000086000000000000001 /* VehicleRemindersView.swift in Sources */,
 				A1000088000000000000001 /* CostAnalyticsView.swift in Sources */,
+				A1000091000000000000001 /* ColorTheme.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

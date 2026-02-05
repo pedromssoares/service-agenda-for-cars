@@ -13,7 +13,7 @@ struct PhotoViewer: View {
     var body: some View {
         NavigationStack {
             ZStack {
-                Color.black.ignoresSafeArea()
+                ColorTheme.photoViewerBackground.ignoresSafeArea()
 
                 TabView(selection: $currentIndex) {
                     ForEach(Array(photos.enumerated()), id: \.offset) { index, photoData in
@@ -46,7 +46,7 @@ struct PhotoViewer: View {
                 }
             }
             .toolbarBackground(.visible, for: .navigationBar)
-            .toolbarBackground(.black.opacity(0.8), for: .navigationBar)
+            .toolbarBackground(ColorTheme.photoViewerToolbar, for: .navigationBar)
         }
     }
 }

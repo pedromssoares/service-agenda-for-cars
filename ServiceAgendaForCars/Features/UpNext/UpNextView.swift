@@ -168,8 +168,8 @@ struct StatusBadge: View {
             .fontWeight(.semibold)
             .padding(.horizontal, 8)
             .padding(.vertical, 4)
-            .background(backgroundColor)
-            .foregroundStyle(.white)
+            .background(status.color)
+            .foregroundStyle(status.textColor)
             .cornerRadius(8)
     }
 
@@ -178,14 +178,6 @@ struct StatusBadge: View {
         case .overdue: return "OVERDUE"
         case .dueSoon: return "DUE SOON"
         case .upcoming: return "UPCOMING"
-        }
-    }
-
-    var backgroundColor: Color {
-        switch status {
-        case .overdue: return .red
-        case .dueSoon: return .orange
-        case .upcoming: return .blue
         }
     }
 }

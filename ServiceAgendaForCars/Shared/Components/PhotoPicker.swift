@@ -93,13 +93,13 @@ struct PhotosPickerButton: View {
             VStack {
                 Image(systemName: "photo.badge.plus")
                     .font(.largeTitle)
-                    .foregroundStyle(.blue)
+                    .foregroundStyle(ColorTheme.info)
                 Text("Add Photos")
                     .font(.caption)
-                    .foregroundStyle(.secondary)
+                    .foregroundStyle(ColorTheme.secondaryText)
             }
             .frame(width: 80, height: 80)
-            .background(Color.gray.opacity(0.1))
+            .background(Color(UIColor.secondarySystemGroupedBackground))
             .clipShape(RoundedRectangle(cornerRadius: 8))
         }
     }
