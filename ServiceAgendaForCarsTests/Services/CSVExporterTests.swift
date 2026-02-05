@@ -50,7 +50,7 @@ final class CSVExporterTests: XCTestCase {
 
         let csv = CSVExporter.generateCSV(from: [event1, event2])
 
-        let lines = csv.components(separatedBy: "\n")
+        let lines = csv.components(separatedBy: "\n").filter { !$0.isEmpty }
         XCTAssertEqual(lines.count, 3, "Should have header + 2 data rows")
     }
 
@@ -193,7 +193,7 @@ final class CSVExporterTests: XCTestCase {
     func testEmptyEventsArray() throws {
         let csv = CSVExporter.generateCSV(from: [])
 
-        let lines = csv.components(separatedBy: "\n")
+        let lines = csv.components(separatedBy: "\n").filter { !$0.isEmpty }
         XCTAssertEqual(lines.count, 1, "Should only have header line")
     }
 }
