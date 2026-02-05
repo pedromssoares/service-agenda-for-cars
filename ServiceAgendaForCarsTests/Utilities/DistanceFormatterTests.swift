@@ -76,7 +76,7 @@ final class DistanceFormatterTests: XCTestCase {
     }
 
     func testFormatDistanceMiles() throws {
-        let km = 1609.34 // ~1 mile
+        let km = 1.60934 // ~1 mile
         let formatted = DistanceFormatter.formatDistance(km, unit: .miles)
         XCTAssertEqual(formatted, "1 mi")
     }
