@@ -13,7 +13,8 @@ struct ServiceAgendaForCarsApp: App {
                 for: Vehicle.self,
                 ServiceTypeTemplate.self,
                 ServiceEvent.self,
-                ReminderRule.self
+                ReminderRule.self,
+                configurations: ModelConfiguration(groupContainer: .identifier("group.com.serviceagenda.shared"))
             )
             modelContainer = container
 
