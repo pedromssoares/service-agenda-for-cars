@@ -12,6 +12,7 @@ struct OnboardingView: View {
     @State private var vehicleName: String = ""
     @State private var unitPreference: DistanceUnit = .kilometers
     @State private var currentOdometer: String = ""
+    @State private var isNewVehicle: Bool = false
     @State private var createdVehicle: Vehicle?
 
     var enabledTemplates: [ServiceTypeTemplate] {
@@ -26,6 +27,7 @@ struct OnboardingView: View {
                         vehicleName: $vehicleName,
                         unitPreference: $unitPreference,
                         currentOdometer: $currentOdometer,
+                        isNewVehicle: $isNewVehicle,
                         onContinue: createVehicleAndProceed
                     )
                 } else if currentStep > 0 && currentStep <= enabledTemplates.count {
@@ -58,7 +60,13 @@ struct OnboardingView: View {
         try? modelContext.save()
 
         createdVehicle = vehicle
-        currentStep = 1
+
+        // Skip service history if brand new vehicle
+        if isNewVehicle {
+            finishOnboarding()
+        } else {
+            currentStep = 1
+        }
     }
 
     private func saveServiceEvent(_ event: ServiceEvent) {
@@ -86,6 +94,7 @@ struct WelcomeStepView: View {
     @Binding var vehicleName: String
     @Binding var unitPreference: DistanceUnit
     @Binding var currentOdometer: String
+    @Binding var isNewVehicle: Bool
     let onContinue: () -> Void
 
     var isValid: Bool {
@@ -137,21 +146,32 @@ struct WelcomeStepView: View {
                         Text(unitPreference == .kilometers ? "km" : "mi")
                             .foregroundStyle(.secondary)
                     }
+
+                    Toggle("This is a brand new vehicle", isOn: $isNewVehicle)
+                        .tint(ColorTheme.info)
                 }
                 .padding(.horizontal)
 
-                Button {
-                    onContinue()
-                } label: {
-                    Text("Continue")
-                        .font(.headline)
-                        .frame(maxWidth: .infinity)
-                        .padding()
-                        .background(isValid ? ColorTheme.info : Color.gray)
-                        .foregroundStyle(.white)
-                        .cornerRadius(12)
+                VStack(spacing: 8) {
+                    Button {
+                        onContinue()
+                    } label: {
+                        Text(isNewVehicle ? "Get Started" : "Continue to Service History")
+                            .font(.headline)
+                            .frame(maxWidth: .infinity)
+                            .padding()
+                            .background(isValid ? ColorTheme.info : Color.gray)
+                            .foregroundStyle(.white)
+                            .cornerRadius(12)
+                    }
+                    .disabled(!isValid)
+
+                    if !isNewVehicle {
+                        Text("We'll ask about your service history next")
+                            .font(.caption)
+                            .foregroundStyle(.secondary)
+                    }
                 }
-                .disabled(!isValid)
                 .padding(.horizontal)
             }
 
