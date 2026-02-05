@@ -7,7 +7,7 @@ final class CSVExporterTests: XCTestCase {
     func testGenerateCSVHeader() throws {
         let csv = CSVExporter.generateCSV(from: [])
 
-        XCTAssertTrue(csv.hasPrefix("Vehicle,Service Type,Date,Odometer,Unit,Cost,Notes"))
+        XCTAssertTrue(csv.hasPrefix("vehicleName,serviceType,dateISO,odometerDisplayed,odometerUnit,cost,notes"))
     }
 
     func testGenerateCSVWithSingleEvent() throws {
