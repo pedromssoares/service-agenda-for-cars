@@ -29,6 +29,9 @@
 		A1000065000000000000001 /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1000066000000000000001 /* NotificationManager.swift */; };
 		A1000068000000000000001 /* CSVExporter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1000069000000000000001 /* CSVExporter.swift */; };
 		A1000070000000000000001 /* CSVDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1000071000000000000001 /* CSVDocument.swift */; };
+		A1000073000000000000001 /* EditServiceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1000074000000000000001 /* EditServiceView.swift */; };
+		A1000075000000000000001 /* PhotoPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1000076000000000000001 /* PhotoPicker.swift */; };
+		A1000077000000000000001 /* PhotoViewer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1000078000000000000001 /* PhotoViewer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -55,6 +58,9 @@
 		A1000066000000000000001 /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
 		A1000069000000000000001 /* CSVExporter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CSVExporter.swift; sourceTree = "<group>"; };
 		A1000071000000000000001 /* CSVDocument.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CSVDocument.swift; sourceTree = "<group>"; };
+		A1000074000000000000001 /* EditServiceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditServiceView.swift; sourceTree = "<group>"; };
+		A1000076000000000000001 /* PhotoPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPicker.swift; sourceTree = "<group>"; };
+		A1000078000000000000001 /* PhotoViewer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoViewer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -161,8 +167,18 @@
 			isa = PBXGroup;
 			children = (
 				A1000060000000000000001 /* Formatting */,
+				A1000079000000000000001 /* Components */,
 			);
 			path = Shared;
+			sourceTree = "<group>";
+		};
+		A1000079000000000000001 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				A1000076000000000000001 /* PhotoPicker.swift */,
+				A1000078000000000000001 /* PhotoViewer.swift */,
+			);
+			path = Components;
 			sourceTree = "<group>";
 		};
 		A1000031000000000000001 /* UpNext */ = {
@@ -178,6 +194,7 @@
 			isa = PBXGroup;
 			children = (
 				A1000016000000000000001 /* HistoryView.swift */,
+				A1000074000000000000001 /* EditServiceView.swift */,
 			);
 			path = History;
 			sourceTree = "<group>";
@@ -307,6 +324,9 @@
 				A1000065000000000000001 /* NotificationManager.swift in Sources */,
 				A1000068000000000000001 /* CSVExporter.swift in Sources */,
 				A1000070000000000000001 /* CSVDocument.swift in Sources */,
+				A1000073000000000000001 /* EditServiceView.swift in Sources */,
+				A1000075000000000000001 /* PhotoPicker.swift in Sources */,
+				A1000077000000000000001 /* PhotoViewer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

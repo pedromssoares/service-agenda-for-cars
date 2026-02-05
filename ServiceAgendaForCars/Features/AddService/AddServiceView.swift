@@ -14,6 +14,7 @@ struct AddServiceView: View {
     @State private var odometerDisplay: String = ""
     @State private var cost: String = ""
     @State private var notes: String = ""
+    @State private var photos: [Data] = []
 
     var enabledServiceTemplates: [ServiceTypeTemplate] {
         serviceTemplates.filter { $0.isEnabled }
@@ -73,6 +74,10 @@ struct AddServiceView: View {
                     TextField("Notes", text: $notes, axis: .vertical)
                         .lineLimit(3...6)
                 }
+
+                Section {
+                    PhotoPicker(photos: $photos)
+                }
             }
             .navigationTitle("Log Service")
             .navigationBarTitleDisplayMode(.inline)
@@ -131,6 +136,7 @@ struct AddServiceView: View {
 
         serviceEvent.vehicle = vehicle
         serviceEvent.serviceType = serviceType
+        serviceEvent.setPhotos(photos)
 
         modelContext.insert(serviceEvent)
         try? modelContext.save()

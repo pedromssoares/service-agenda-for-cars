@@ -8,6 +8,7 @@ struct HistoryView: View {
     @State private var showingAddService = false
     @State private var showingExportSheet = false
     @State private var csvDocument: CSVDocument?
+    @State private var selectedEvent: ServiceEvent?
 
     var body: some View {
         NavigationStack {
@@ -21,7 +22,9 @@ struct HistoryView: View {
                 } else {
                     List {
                         ForEach(serviceEvents) { event in
-                            ServiceEventRow(event: event)
+                            ServiceEventRow(event: event) {
+                                selectedEvent = event
+                            }
                         }
                         .onDelete(perform: deleteEvents)
                     }
@@ -49,6 +52,9 @@ struct HistoryView: View {
             }
             .sheet(isPresented: $showingAddService) {
                 AddServiceView()
+            }
+            .sheet(item: $selectedEvent) { event in
+                EditServiceView(serviceEvent: event)
             }
             .fileExporter(
                 isPresented: $showingExportSheet,
@@ -83,51 +89,82 @@ struct HistoryView: View {
 
 struct ServiceEventRow: View {
     let event: ServiceEvent
+    let onTap: () -> Void
+    @State private var showingPhotoViewer = false
+    @State private var selectedPhotoIndex = 0
 
     var body: some View {
-        VStack(alignment: .leading, spacing: 4) {
-            HStack {
-                Text(event.serviceType?.name ?? "Unknown Service")
-                    .font(.headline)
-                Spacer()
-                if let cost = event.cost {
-                    Text(CurrencyFormatter.format(cost))
-                        .font(.subheadline)
-                        .foregroundStyle(.secondary)
+        Button(action: onTap) {
+            VStack(alignment: .leading, spacing: 8) {
+                HStack {
+                    Text(event.serviceType?.name ?? "Unknown Service")
+                        .font(.headline)
+                        .foregroundStyle(.primary)
+                    Spacer()
+                    if let cost = event.cost {
+                        Text(CurrencyFormatter.format(cost))
+                            .font(.subheadline)
+                            .foregroundStyle(.secondary)
+                    }
                 }
-            }
 
-            HStack {
-                Text(event.date, style: .date)
-                    .font(.subheadline)
-                    .foregroundStyle(.secondary)
-
-                if let vehicle = event.vehicle {
-                    Text("•")
-                        .foregroundStyle(.tertiary)
-                    Text(vehicle.name)
+                HStack {
+                    Text(event.date, style: .date)
                         .font(.subheadline)
                         .foregroundStyle(.secondary)
 
-                    Text("•")
+                    if let vehicle = event.vehicle {
+                        Text("•")
+                            .foregroundStyle(.tertiary)
+                        Text(vehicle.name)
+                            .font(.subheadline)
+                            .foregroundStyle(.secondary)
+
+                        Text("•")
+                            .foregroundStyle(.tertiary)
+                        Text(DistanceFormatter.formatDistance(
+                            event.odometerKm,
+                            unit: vehicle.unitPreference
+                        ))
+                        .font(.subheadline)
+                        .foregroundStyle(.secondary)
+                    }
+                }
+
+                if let notes = event.notes, !notes.isEmpty {
+                    Text(notes)
+                        .font(.caption)
                         .foregroundStyle(.tertiary)
-                    Text(DistanceFormatter.formatDistance(
-                        event.odometerKm,
-                        unit: vehicle.unitPreference
-                    ))
-                    .font(.subheadline)
-                    .foregroundStyle(.secondary)
+                        .lineLimit(2)
+                }
+
+                // Photo thumbnails
+                if !event.photos.isEmpty {
+                    ScrollView(.horizontal, showsIndicators: false) {
+                        HStack(spacing: 8) {
+                            ForEach(Array(event.photos.enumerated()), id: \.offset) { index, photoData in
+                                if let uiImage = UIImage(data: photoData) {
+                                    Button {
+                                        selectedPhotoIndex = index
+                                        showingPhotoViewer = true
+                                    } label: {
+                                        Image(uiImage: uiImage)
+                                            .resizable()
+                                            .scaledToFill()
+                                            .frame(width: 60, height: 60)
+                                            .clipShape(RoundedRectangle(cornerRadius: 6))
+                                    }
+                                }
+                            }
+                        }
+                    }
                 }
             }
-
-            if let notes = event.notes, !notes.isEmpty {
-                Text(notes)
-                    .font(.caption)
-                    .foregroundStyle(.tertiary)
-                    .lineLimit(2)
-            }
+            .padding(.vertical, 4)
         }
-        .padding(.vertical, 4)
+        .fullScreenCover(isPresented: $showingPhotoViewer) {
+            PhotoViewer(photos: event.photos, startingAt: selectedPhotoIndex)
+        }
     }
 }
 
