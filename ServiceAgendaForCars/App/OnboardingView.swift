@@ -8,6 +8,7 @@ struct OnboardingView: View {
 
     @State private var vehicleName: String = ""
     @State private var unitPreference: DistanceUnit = .kilometers
+    @State private var currentOdometer: String = ""
 
     var body: some View {
         NavigationStack {
@@ -45,6 +46,15 @@ struct OnboardingView: View {
                             Text("Miles").tag(DistanceUnit.miles)
                         }
                         .pickerStyle(.segmented)
+
+                        HStack {
+                            TextField("Current Odometer", text: $currentOdometer)
+                                .keyboardType(.numberPad)
+                                .textFieldStyle(.roundedBorder)
+
+                            Text(unitPreference == .kilometers ? "km" : "mi")
+                                .foregroundStyle(.secondary)
+                        }
                     }
                     .padding(.horizontal)
 
@@ -70,9 +80,13 @@ struct OnboardingView: View {
     }
 
     private func addVehicleAndContinue() {
+        let odometerValue = Double(currentOdometer) ?? 0
+        let odometerKm = DistanceFormatter.toStoredValue(odometerValue, unit: unitPreference)
+
         let vehicle = Vehicle(
             name: vehicleName.trimmingCharacters(in: .whitespaces),
-            unitPreference: unitPreference
+            unitPreference: unitPreference,
+            currentOdometerKm: odometerKm
         )
         modelContext.insert(vehicle)
         try? modelContext.save()
