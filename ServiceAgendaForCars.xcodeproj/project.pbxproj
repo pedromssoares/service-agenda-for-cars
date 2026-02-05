@@ -36,6 +36,7 @@
 		A1000082000000000000001 /* CreateServiceTypeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1000083000000000000001 /* CreateServiceTypeView.swift */; };
 		A1000084000000000000001 /* EditServiceTypeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1000085000000000000001 /* EditServiceTypeView.swift */; };
 		A1000086000000000000001 /* VehicleRemindersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1000087000000000000001 /* VehicleRemindersView.swift */; };
+		A1000088000000000000001 /* CostAnalyticsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1000089000000000000001 /* CostAnalyticsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -69,6 +70,7 @@
 		A1000083000000000000001 /* CreateServiceTypeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateServiceTypeView.swift; sourceTree = "<group>"; };
 		A1000085000000000000001 /* EditServiceTypeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditServiceTypeView.swift; sourceTree = "<group>"; };
 		A1000087000000000000001 /* VehicleRemindersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VehicleRemindersView.swift; sourceTree = "<group>"; };
+		A1000089000000000000001 /* CostAnalyticsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CostAnalyticsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -139,8 +141,17 @@
 				A1000032000000000000001 /* History */,
 				A1000059000000000000001 /* AddService */,
 				A1000033000000000000001 /* Settings */,
+				A1000090000000000000001 /* Analytics */,
 			);
 			path = Features;
+			sourceTree = "<group>";
+		};
+		A1000090000000000000001 /* Analytics */ = {
+			isa = PBXGroup;
+			children = (
+				A1000089000000000000001 /* CostAnalyticsView.swift */,
+			);
+			path = Analytics;
 			sourceTree = "<group>";
 		};
 		A1000029000000000000001 /* Services */ = {
@@ -343,6 +354,7 @@
 				A1000082000000000000001 /* CreateServiceTypeView.swift in Sources */,
 				A1000084000000000000001 /* EditServiceTypeView.swift in Sources */,
 				A1000086000000000000001 /* VehicleRemindersView.swift in Sources */,
+				A1000088000000000000001 /* CostAnalyticsView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

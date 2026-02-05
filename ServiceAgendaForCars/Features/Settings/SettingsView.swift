@@ -88,6 +88,14 @@ struct SettingsView: View {
                     } label: {
                         Label("Service Types", systemImage: "wrench.and.screwdriver")
                     }
+
+                    if !serviceEvents.isEmpty {
+                        NavigationLink {
+                            CostAnalyticsView()
+                        } label: {
+                            Label("Cost Analytics", systemImage: "chart.bar")
+                        }
+                    }
                 }
 
                 Section("Data") {
