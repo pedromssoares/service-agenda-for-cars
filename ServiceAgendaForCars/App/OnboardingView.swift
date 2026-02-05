@@ -79,7 +79,7 @@ struct OnboardingView: View {
 
         // Request notification permission
         Task {
-            await notificationManager.requestPermission()
+            _ = await notificationManager.requestPermission()
             dismiss()
         }
     }
