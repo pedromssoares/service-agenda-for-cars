@@ -82,6 +82,14 @@ struct SettingsView: View {
                     }
                 }
 
+                Section("Maintenance") {
+                    NavigationLink {
+                        ManageServiceTypesView()
+                    } label: {
+                        Label("Service Types", systemImage: "wrench.and.screwdriver")
+                    }
+                }
+
                 Section("Data") {
                     if !serviceEvents.isEmpty {
                         Button {

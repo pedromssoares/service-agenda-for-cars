@@ -32,6 +32,9 @@
 		A1000073000000000000001 /* EditServiceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1000074000000000000001 /* EditServiceView.swift */; };
 		A1000075000000000000001 /* PhotoPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1000076000000000000001 /* PhotoPicker.swift */; };
 		A1000077000000000000001 /* PhotoViewer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1000078000000000000001 /* PhotoViewer.swift */; };
+		A1000080000000000000001 /* ManageServiceTypesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1000081000000000000001 /* ManageServiceTypesView.swift */; };
+		A1000082000000000000001 /* CreateServiceTypeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1000083000000000000001 /* CreateServiceTypeView.swift */; };
+		A1000084000000000000001 /* EditServiceTypeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1000085000000000000001 /* EditServiceTypeView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -61,6 +64,9 @@
 		A1000074000000000000001 /* EditServiceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditServiceView.swift; sourceTree = "<group>"; };
 		A1000076000000000000001 /* PhotoPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPicker.swift; sourceTree = "<group>"; };
 		A1000078000000000000001 /* PhotoViewer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoViewer.swift; sourceTree = "<group>"; };
+		A1000081000000000000001 /* ManageServiceTypesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManageServiceTypesView.swift; sourceTree = "<group>"; };
+		A1000083000000000000001 /* CreateServiceTypeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateServiceTypeView.swift; sourceTree = "<group>"; };
+		A1000085000000000000001 /* EditServiceTypeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditServiceTypeView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -205,6 +211,9 @@
 				A1000018000000000000001 /* SettingsView.swift */,
 				A1000047000000000000001 /* AddVehicleView.swift */,
 				A1000049000000000000001 /* EditVehicleView.swift */,
+				A1000081000000000000001 /* ManageServiceTypesView.swift */,
+				A1000083000000000000001 /* CreateServiceTypeView.swift */,
+				A1000085000000000000001 /* EditServiceTypeView.swift */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -327,6 +336,9 @@
 				A1000073000000000000001 /* EditServiceView.swift in Sources */,
 				A1000075000000000000001 /* PhotoPicker.swift in Sources */,
 				A1000077000000000000001 /* PhotoViewer.swift in Sources */,
+				A1000080000000000000001 /* ManageServiceTypesView.swift in Sources */,
+				A1000082000000000000001 /* CreateServiceTypeView.swift in Sources */,
+				A1000084000000000000001 /* EditServiceTypeView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

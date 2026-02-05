@@ -8,6 +8,7 @@ final class ServiceTypeTemplate {
     var defaultIntervalDays: Int?
     var defaultIntervalDistanceKm: Double?
     var isEnabled: Bool
+    var isCustom: Bool
 
     @Relationship(deleteRule: .nullify, inverse: \ServiceEvent.serviceType)
     var serviceEvents: [ServiceEvent]?
@@ -20,12 +21,14 @@ final class ServiceTypeTemplate {
         name: String,
         defaultIntervalDays: Int? = nil,
         defaultIntervalDistanceKm: Double? = nil,
-        isEnabled: Bool = true
+        isEnabled: Bool = true,
+        isCustom: Bool = false
     ) {
         self.id = id
         self.name = name
         self.defaultIntervalDays = defaultIntervalDays
         self.defaultIntervalDistanceKm = defaultIntervalDistanceKm
         self.isEnabled = isEnabled
+        self.isCustom = isCustom
     }
 }
