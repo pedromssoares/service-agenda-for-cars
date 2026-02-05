@@ -12,6 +12,9 @@ final class Vehicle {
     @Relationship(deleteRule: .cascade, inverse: \ServiceEvent.vehicle)
     var serviceEvents: [ServiceEvent]?
 
+    @Relationship(deleteRule: .cascade, inverse: \ReminderRule.vehicle)
+    var reminderRules: [ReminderRule]?
+
     init(
         id: UUID = UUID(),
         name: String,

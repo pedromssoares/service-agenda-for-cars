@@ -30,6 +30,14 @@ struct EditVehicleView: View {
                     }
                 }
 
+                Section("Maintenance") {
+                    NavigationLink {
+                        VehicleRemindersView(vehicle: vehicle)
+                    } label: {
+                        Label("Service Reminders", systemImage: "bell")
+                    }
+                }
+
                 Section {
                     Button("Delete Vehicle", role: .destructive) {
                         deleteVehicle()

@@ -9,6 +9,7 @@ final class ReminderRule {
     var distanceIntervalKm: Double?
 
     var serviceType: ServiceTypeTemplate?
+    var vehicle: Vehicle?
 
     init(
         id: UUID = UUID(),

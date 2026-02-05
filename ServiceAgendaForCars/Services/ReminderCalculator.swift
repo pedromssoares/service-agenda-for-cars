@@ -62,6 +62,7 @@ class ReminderCalculator {
 
         for vehicle in vehicles {
             let vehicleEvents = serviceEvents.filter { $0.vehicle?.id == vehicle.id }
+            let vehicleReminderRules = vehicle.reminderRules ?? []
 
             for template in serviceTemplates where template.isEnabled {
                 // Find the last service of this type for this vehicle
@@ -70,16 +71,31 @@ class ReminderCalculator {
                     .sorted { $0.date > $1.date }
                     .first
 
+                // Check for vehicle-specific reminder rule first
+                let vehicleRule = vehicleReminderRules.first { $0.serviceType?.id == template.id }
+
+                // Determine intervals (vehicle-specific overrides default)
+                let daysInterval: Int?
+                let distanceIntervalKm: Double?
+
+                if let rule = vehicleRule {
+                    daysInterval = rule.daysInterval
+                    distanceIntervalKm = rule.distanceIntervalKm
+                } else {
+                    daysInterval = template.defaultIntervalDays
+                    distanceIntervalKm = template.defaultIntervalDistanceKm
+                }
+
                 // Calculate due date based on time interval
                 var dueDateByDate: Date?
-                if let days = template.defaultIntervalDays {
+                if let days = daysInterval {
                     let baseDate = lastEvent?.date ?? vehicle.createdAt
                     dueDateByDate = Calendar.current.date(byAdding: .day, value: days, to: baseDate)
                 }
 
                 // Calculate due odometer based on distance interval
                 var dueOdometerKm: Double?
-                if let intervalKm = template.defaultIntervalDistanceKm {
+                if let intervalKm = distanceIntervalKm {
                     let baseOdometer = lastEvent?.odometerKm ?? 0
                     dueOdometerKm = baseOdometer + intervalKm
                 }

@@ -35,6 +35,7 @@
 		A1000080000000000000001 /* ManageServiceTypesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1000081000000000000001 /* ManageServiceTypesView.swift */; };
 		A1000082000000000000001 /* CreateServiceTypeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1000083000000000000001 /* CreateServiceTypeView.swift */; };
 		A1000084000000000000001 /* EditServiceTypeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1000085000000000000001 /* EditServiceTypeView.swift */; };
+		A1000086000000000000001 /* VehicleRemindersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1000087000000000000001 /* VehicleRemindersView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -67,6 +68,7 @@
 		A1000081000000000000001 /* ManageServiceTypesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManageServiceTypesView.swift; sourceTree = "<group>"; };
 		A1000083000000000000001 /* CreateServiceTypeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateServiceTypeView.swift; sourceTree = "<group>"; };
 		A1000085000000000000001 /* EditServiceTypeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditServiceTypeView.swift; sourceTree = "<group>"; };
+		A1000087000000000000001 /* VehicleRemindersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VehicleRemindersView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -211,6 +213,7 @@
 				A1000018000000000000001 /* SettingsView.swift */,
 				A1000047000000000000001 /* AddVehicleView.swift */,
 				A1000049000000000000001 /* EditVehicleView.swift */,
+				A1000087000000000000001 /* VehicleRemindersView.swift */,
 				A1000081000000000000001 /* ManageServiceTypesView.swift */,
 				A1000083000000000000001 /* CreateServiceTypeView.swift */,
 				A1000085000000000000001 /* EditServiceTypeView.swift */,
@@ -339,6 +342,7 @@
 				A1000080000000000000001 /* ManageServiceTypesView.swift in Sources */,
 				A1000082000000000000001 /* CreateServiceTypeView.swift in Sources */,
 				A1000084000000000000001 /* EditServiceTypeView.swift in Sources */,
+				A1000086000000000000001 /* VehicleRemindersView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
